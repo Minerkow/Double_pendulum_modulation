@@ -35,12 +35,7 @@ class NormalPendulums:
                   [0, betta]]
         self.C = [[g * a * (m1 + m2), 0],
                   [0, g * b * m2]]
-        self.d = -m2*a*b*mat# class InitState:
-#     def __init__(self, phi: float = 0, length: float = 1.0, weight: float = 1, angular_speed: float = 1.0):
-#         self.phi = phi
-#         self.length = length
-#         self.weight = weight
-#         self.angular_speed = angular_speedh.sin(phi2 - phi1)
+        self.d = -m2*a*b*math.sin(phi2 - phi1)
 
     def __acc(self):
         """"""
@@ -100,7 +95,7 @@ class SmallAnglesPendulums:
         return self.phi, self.angular_speed
 
 
-def show_plots(pendulums: SmallAnglesPendulums, duration: float = 40.0):
+def show_plots(pendulums, duration: float = 40.0):
     """ Make plots without animation """
     import matplotlib.pyplot as plt
 
