@@ -71,8 +71,8 @@ class SmallAnglesPendulums:
         phi1 = arm1.phi
         phi2 = arm2.phi
 
-        self.A = [[(m1 + m2) * a ** 2, m2 * a * b * np.cos(phi1 - phi2)],
-                  [m2 * a * b * np.cos(phi1 - phi2), m2 * b ** 2]]
+        self.A = [[(m1 + m2) * a ** 2, m2 * a * b],
+                  [m2 * a * b, m2 * b ** 2]]
         self.B = [[betta, 0],
                   [0, betta]]
         self.C = [[g * a * (m1 + m2), 0],
