@@ -3,8 +3,8 @@ from __future__ import division
 
 import enum
 
-from DoublePendulum.Draw import Point, Draw
-import DoublePendulum.Calculation as Calculation
+from Draw import Point, Draw
+import Calculation as Calculation
 import pygame as pg
 import math
 
