@@ -21,6 +21,7 @@ class NormalPendulums:
         self.dt = time_step
         self.phi = np.array([[arm1.phi, arm2.phi]]).transpose()
         self.angular_speed = np.array([[arm1.angular_speed, arm2.angular_speed]]).transpose()
+        self.angular_speed_sq = np.array([[arm2.angular_speed**2, arm1.angular_speed**2]]).transpose()
 
         m1 = arm1.weight
         m2 = arm2.weight
@@ -41,7 +42,7 @@ class NormalPendulums:
         """"""
         return -(np.dot(np.dot(LA.inv(self.A), self.B), self.angular_speed) +
                  np.dot(np.dot(LA.inv(self.A), self.C), np.sin(self.phi)) +
-                 self.d*np.dot(LA.inv(self.A), np.power(self.angular_speed, 2)))
+                 self.d*np.dot(LA.inv(self.A), self.angular_speed_sq))
 
     def get_next_state(self):
         """ Numerically solve the system angles for a single time step """
