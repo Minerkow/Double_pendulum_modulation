@@ -129,17 +129,17 @@ def main(phi1, phi2, angular_speed1, angular_speed2, weight1, weight2, length1, 
         pg.display.update()
         clk.tick(fps)
 
-if __name__ == '__main__':
-    phi1 = 10
-    phi2 = 10
-    angular_speed1 = 10
-    angular_speed2 = 10
-    weight1 = 1000
-    weight2 = 10
-    length1 = 100
-    length2 = 100
-    betta = 10000
-
-    duration = 1000
-
-    main(phi1, phi2, angular_speed1, angular_speed2, weight1, weight2, length1, length2, betta, RenderMode.DUO_MODE)
+# if __name__ == '__main__':
+#     phi1 = 10
+#     phi2 = 10
+#     angular_speed1 = 10
+#     angular_speed2 = 10
+#     weight1 = 1000
+#     weight2 = 10
+#     length1 = 100
+#     length2 = 100
+#     betta = 10000
+#
+#     duration = 1000
+#
+#     main(phi1, phi2, angular_speed1, angular_speed2, weight1, weight2, length1, length2, betta, RenderMode.DUO_MODE)

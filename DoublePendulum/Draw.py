@@ -86,24 +86,3 @@ class Draw:
         _p2 = self.T.itrans(current_pos)
         pg.draw.line(self.screen, color, (_p1.x, _p1.y), (_p2.x, _p2.y), width=4)
 
-
-def main():
-    """ Run a test """
-    pg.init()
-    width = height = 200
-    screen = pg.display.set_mode((width, height))
-    draw = Draw(screen, width / 2, height / 2)
-
-    p1 = Point(0, 50)
-    p2 = Point(50, 0)
-    draw.draw_isosceles_triangle((255, 255, 255), p1, 100)
-    end = False
-    while not end:
-        for event in pg.event.get():
-            if event.type == pg.QUIT:
-                end = True
-        pg.display.update()
-
-
-if __name__ == '__main__':
-    main()
