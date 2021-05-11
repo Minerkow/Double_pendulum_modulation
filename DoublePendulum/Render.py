@@ -87,9 +87,11 @@ def main(phi1, phi2, angular_speed1, angular_speed2, weight1, weight2, length1, 
 
     t = [0.0]
 
-    track = [[],[]]
+    track = [[], []]
     end_arm2 = [None, None]
-    last_pos = [[],[]]
+    last_pos = [[], []]
+
+    scale = height / 4
 
     while not end:
         for event in pg.event.get():
@@ -112,8 +114,8 @@ def main(phi1, phi2, angular_speed1, angular_speed2, weight1, weight2, length1, 
             t.append(t[-1] + dt)
 
             last_pos[j] = end_arm2[j]
-            end_arm1 = pillar_point + Point(math.sin(phis[0]) * length1, -math.cos(phis[0]) * length1)
-            end_arm2[j] = end_arm1 + Point(math.sin(phis[1]) * length2, -math.cos(phis[1]) * length2)
+            end_arm1 = pillar_point + Point(math.sin(phis[0]) * length1 * scale, -math.cos(phis[0]) * length1 * scale)
+            end_arm2[j] = end_arm1 + Point(math.sin(phis[1]) * length2 * scale, -math.cos(phis[1]) * length2 * scale)
 
             if last_pos[j] is not None:
                 track[j].append(end_arm2[j])
@@ -129,17 +131,27 @@ def main(phi1, phi2, angular_speed1, angular_speed2, weight1, weight2, length1, 
         pg.display.update()
         clk.tick(fps)
 
-# if __name__ == '__main__':
-#     phi1 = 10
-#     phi2 = 10
-#     angular_speed1 = 10
-#     angular_speed2 = 10
-#     weight1 = 1000
-#     weight2 = 10
-#     length1 = 100
-#     length2 = 100
-#     betta = 10000
-#
-#     duration = 1000
-#
-#     main(phi1, phi2, angular_speed1, angular_speed2, weight1, weight2, length1, length2, betta, RenderMode.DUO_MODE)
+
+if __name__ == '__main__':
+    phi1 = 30
+    phi2 = 10
+    angular_speed1 = 0
+    angular_speed2 = 0
+    weight1 = 1
+    weight2 = 1
+    length1 = 1
+    length2 = 1
+    betta = 0.1
+
+    duration = 60
+
+    dt = 1 / 60
+
+    arm1 = Calculation.InitState(phi1, length1, weight1, angular_speed1)
+    arm2 = Calculation.InitState(phi2, length2, weight2, angular_speed2)
+
+    pend = Calculation.SmallAnglesPendulums(dt, arm1, arm2, betta)
+
+    #main(phi1, phi2, angular_speed1, angular_speed2, weight1, weight2, length1, length2, betta, RenderMode.SMALL_ANGLES)
+
+    Calculation.show_plots(pend, duration)

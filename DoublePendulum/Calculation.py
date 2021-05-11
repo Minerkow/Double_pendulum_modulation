@@ -8,12 +8,14 @@ from numpy import linalg as LA
 
 g = 9.8
 
+
 class InitState:
     def __init__(self, phi: float = 0, length: float = 1.0, weight: float = 1, angular_speed: float = 1.0):
         self.phi = phi
         self.length = length
         self.weight = weight
         self.angular_speed = angular_speed
+
 
 class NormalPendulums:
     def __init__(self, time_step, arm1: InitState, arm2: InitState, betta: float = 0.1):
@@ -58,9 +60,7 @@ class NormalPendulums:
 
 class SmallAnglesPendulums:
     def __init__(self, time_step, arm1: InitState, arm2: InitState, betta: float = 0.1):
-        """ dt is the time-step, th10 and th20 are the initial angles, thp10 and
-        thp20 are initial speeds, len is the length of the pendulums and m their
-        mass """
+
         self.dt = time_step
         self.phi = np.array([[arm1.phi, arm2.phi]]).transpose()
         self.angular_speed = np.array([[arm1.angular_speed, arm2.angular_speed]]).transpose()
