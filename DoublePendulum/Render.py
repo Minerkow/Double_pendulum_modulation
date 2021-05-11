@@ -151,7 +151,6 @@ if __name__ == '__main__':
     arm2 = Calculation.InitState(phi2, length2, weight2, angular_speed2)
 
     pend = Calculation.SmallAnglesPendulums(dt, arm1, arm2, betta)
-
     #main(phi1, phi2, angular_speed1, angular_speed2, weight1, weight2, length1, length2, betta, RenderMode.SMALL_ANGLES)
-
-    Calculation.show_plots(pend, duration)
+    pend.attenuation_analysis(0.01, 1.0, 0.01)
+    #Calculation.show_plots(pend, duration)
