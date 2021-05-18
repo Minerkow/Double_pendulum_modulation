@@ -77,8 +77,8 @@ class SmallAnglesPendulums:
 
         self.A = [[(m1 + m2) * a ** 2, m2 * a * b],
                   [m2 * a * b, m2 * b ** 2]]
-        self.B = [[self.betta, 0],
-                  [0, self.betta]]
+        self.B = [[0, 0],
+                  [self.betta*a, self.betta*b]]
         self.C = [[g * a * (m1 + m2), 0],
                   [0, g * b * m2]]
 
